@@ -180,6 +180,7 @@ type Client struct {
 	VolumeUnmount          *VolumeUnmount
 	VserverGetIter         *VserverGetIter
 	VserverShowAggrGetIter *VserverShowAggrGetIter
+	//QtreeGetIter           *QtreeGetIter
 }
 
 type ClientOptions struct {
@@ -198,6 +199,26 @@ func DefaultOptions() *ClientOptions {
 		Timeout:   60 * time.Second,
 		Version:   "1.15",
 	}
+}
+func (c *Client) QtreeGetIter() (*QtreeGetIterResponse, error) {
+	req := &QtreeGetIter{
+		Base: Base{
+			Version: "1.21",
+			XMLNs:   XMLNs,
+			client:  c,
+		},
+	}
+	req.Params.XMLName = xml.Name{Local: "qtree-get-iter"}
+
+	var response QtreeGetIterResponse
+	_, err := req.Base.get(req, &response)
+	if err != nil {
+		return nil, err
+	}
+	if !response.Results.Passed() {
+		return nil, fmt.Errorf("Error: %s", response.Results.Reason)
+	}
+	return &response, nil
 }
 
 func NewClient(endpoint string, options *ClientOptions) *Client {
