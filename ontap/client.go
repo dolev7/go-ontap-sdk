@@ -161,6 +161,7 @@ type Client struct {
 	LunSetAttribute        *LunSetAttribute
 	NetInterfaceGetIter    *NetInterfaceGetIter
 	NetRoutesGetIter       *NetRoutesGetIter
+	QtreeGetIter           *QtreeGetIter
 	SnapshotCreate         *SnapshotCreate
 	SnapshotDelete         *SnapshotDelete
 	SnapshotGetIter        *SnapshotGetIter
@@ -180,7 +181,6 @@ type Client struct {
 	VolumeUnmount          *VolumeUnmount
 	VserverGetIter         *VserverGetIter
 	VserverShowAggrGetIter *VserverShowAggrGetIter
-	QtreeListIter          *QtreeListIter
 }
 
 type ClientOptions struct {
