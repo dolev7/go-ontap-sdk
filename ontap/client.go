@@ -181,7 +181,6 @@ type Client struct {
 	VolumeUnmount          *VolumeUnmount
 	VserverGetIter         *VserverGetIter
 	VserverShowAggrGetIter *VserverShowAggrGetIter
-	QtreeListIter          *QtreeListIter
 }
 
 type ClientOptions struct {
