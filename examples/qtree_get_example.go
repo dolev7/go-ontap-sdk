@@ -37,6 +37,7 @@ func main() {
 				fmt.Printf("Status: %s\n", qtree.Status)
 				fmt.Printf("OpLocks: %s\n", qtree.OpLocks)
 				fmt.Printf("Security Style: %s\n", qtree.SecurityStyle)
+				fmt.Printf("Id: %s\n", qtree.Id)
 				fmt.Println()
 			}
 			fmt.Printf("Total Qtrees: %d\n", response.Results.NumRecords)

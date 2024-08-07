@@ -42,6 +42,7 @@ type QtreeInfo struct {
 	Status        string `xml:"status"`
 	OpLocks       string `xml:"oplocks"`
 	SecurityStyle string `xml:"security-style"`
+	Id            string `xml:"id"`
 }
 
 func (c *Client) QtreeGetAPI(options *QtreeGetIterOptions) (*QtreeGetIterResponse, *http.Response, error) {
